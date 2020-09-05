@@ -8,24 +8,24 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 mongoose.connect(process.env.DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
-.then((x) => {
+  .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
-})
-.catch((err) => {
+  })
+  .catch((err) => {
     console.log("Error connecting to mongo", err)
-});
+  });
 
 const app = express();
 
 app.use(
-    cors({
-      origin: ["http://localhost:3001"],
-      credentials: true,
-    })
-  );
+  cors({
+    origin: ["http://localhost:3001", "https://oblekco-runningtracker.herokuapp.com/"],
+    credentials: true,
+  })
+);
 
 app.use(logger('dev'));
 app.use(express.json());
