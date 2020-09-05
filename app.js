@@ -20,7 +20,6 @@ mongoose.connect(process.env.DB, {
 
 const app = express();
 
-//Deploy
 app.use(
   cors({
     origin: ["http://localhost:3001", "https://oblekco-runningtracker.herokuapp.com/"],
