@@ -34,6 +34,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const authRouter = require('./routes/auth');
-app.use('/', authRouter);
+app.use('/api', authRouter);
+
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 module.exports = app;

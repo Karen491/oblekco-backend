@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "predeploy": "cd ../oblekco-frontend && yarn build",
+    "deploy": "cp -r ../oblekco-frontend/build/ public/"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
