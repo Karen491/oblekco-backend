@@ -9,5 +9,14 @@ router.post("/", (req, res) => {
     }).catch((err) => res.status(400).json(err));
 });
 
+//Get runs
+router.get("/", (req, res) => {
+    Run.find()
+        .then((runs) => {
+            res.status(200).json({ result: runs });
+        })
+        .catch((err) => res.status(400).json(err));
+});
+
 
 module.exports = router;
