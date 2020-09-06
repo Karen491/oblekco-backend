@@ -41,4 +41,9 @@ router.post("/signup", (req, res) => {
   });
 });
 
+//Logout process
+router.post("/logout", (req, res) => {
+  res.clearCookie("token").json({ msg: "logout" });
+});
+
 module.exports = router;
