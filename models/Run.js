@@ -2,6 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const runSchema = new Schema(
     {
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: "User"
+        },
         date: {
             type: Date,
             required: [true, "The date is missing"],
